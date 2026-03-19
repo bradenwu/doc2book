@@ -2,11 +2,66 @@
 name = "doc2book"
 version = "0.1.0"
 description = "Convert documentation websites to PDF/EPUB books"
+readme = "README.md"
+license = {text = "MIT"}
 requires-python = ">=3.10"
+authors = [
+    {name = "Braden Wu", email = "bradenwu@example.com"}
+]
+keywords = ["documentation", "pdf", "epub", "crawler", "converter"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Text Processing :: Markup :: Markdown",
+]
 dependencies = [
     "firecrawl-py>=1.0.0",
     "typer>=0.9.0",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+
 [project.scripts]
 doc2book = "doc2book.cli.main:app"
+
+[project.urls]
+Homepage = "https://github.com/bradenwu/doc2book"
+Documentation = "https://github.com/bradenwu/doc2book#readme"
+Repository = "https://github.com/bradenwu/doc2book"
+Issues = "https://github.com/bradenwu/doc2book/issues"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["doc2book*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py310', 'py311', 'py312']
+include = '\.pyi?$'
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+select = ["E", "F", "I", "N", "W"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
