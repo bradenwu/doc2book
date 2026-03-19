@@ -1,0 +1,12 @@
+[project]
+name = "doc2book"
+version = "0.1.0"
+description = "Convert documentation websites to PDF/EPUB books"
+requires-python = ">=3.10"
+dependencies = [
+    "firecrawl-py>=1.0.0",
+    "typer>=0.9.0",
+]
+
+[project.scripts]
+doc2book = "doc2book.cli.main:app"
