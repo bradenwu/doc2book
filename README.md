@@ -7,7 +7,7 @@
 
 ## ✨ 功能特性
 
-- 🕷️ **智能爬取**: 基于 Firecrawl 爬取文档网站，支持 JavaScript 渲染
+- 🕷️ **智能爬取**: 基于 Crawl4AI 爬取文档网站，支持 JavaScript 渲染，无需 API Key
 - 📝 **Markdown 合并**: 自动整理页面顺序，生成结构化 Markdown
 - 📄 **PDF 导出**: 使用 Pandoc + XeLaTeX 生成高质量 PDF
 - 🔧 **CLI 友好**: 简洁的命令行界面，支持多种输出格式
@@ -36,14 +36,15 @@ pip install -e .
 - **Pandoc** - [安装指南](https://pandoc.org/installing.html)
 - **XeLaTeX** (可选，用于 PDF 导出) - [TeX Live](https://www.tug.org/texlive/)
 
-### 配置 API Key
+### 安装浏览器依赖
 
 ```bash
-# 设置 Firecrawl API Key
-export FIRECRAWL_API_KEY="your-api-key-here"
+# 安装 Crawl4AI 并设置浏览器
+pip install crawl4ai
+crawl4ai-setup
 ```
 
-> 获取 API Key: [Firecrawl 官网](https://www.firecrawl.dev/)
+> Crawl4AI 是开源爬虫，无需 API Key
 
 ## 📖 使用方法
 
@@ -83,7 +84,7 @@ doc2book/
 ├── core/           # 核心逻辑
 │   └── pipeline.py # 主处理流程
 ├── crawler/        # 爬虫模块
-│   └── firecrawl.py# Firecrawl 爬虫
+│   └── crawl4ai.py # Crawl4AI 爬虫
 ├── builder/        # 内容构建
 │   └── markdown_builder.py # Markdown 合并
 ├── exporter/       # 导出模块
@@ -131,7 +132,7 @@ doc2book/
 
 ## 🙏 致谢
 
-- [Firecrawl](https://www.firecrawl.dev/) - 强大的网页爬取 API
+- [Crawl4AI](https://github.com/unclecode/crawl4ai) - 开源的 LLM 友好网页爬虫
 - [Pandoc](https://pandoc.org/) - 通用文档转换工具
 - [Typer](https://typer.tiangolo.com/) - 优秀的 CLI 框架
 

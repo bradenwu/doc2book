@@ -1,7 +1,7 @@
 """Main pipeline for Doc2Book."""
 import os
 from typing import Optional
-from ..crawler.firecrawl import crawl_docs
+from ..crawler.crawl4ai import crawl_docs
 from ..builder.markdown_builder import sort_pages, merge_markdown
 from ..exporter.pdf_exporter import export_pdf
 
